@@ -20,6 +20,17 @@ class MainActivity : AppCompatActivity() {
             Car("Ford Mustang", "Yellow", 450),
         )
 
+        val cityList: List<City> = listOf(
+            City("Москва", "Численность", 12000000),
+            City("Краснодар", "Численность", 1500000),
+            City("Санкт Петербург", "Численность", 9000000),
+            City("Кронштадт", "Численность", 25000),
+            City("Табмов", "Численность", 850000),
+            City("Красноярск", "Численность", 4800000),
+            City("Сочи", "Численность", 605000),
+            City("Калининград", "Численность", 987000)
+        )
+
         val userRecyclerView: RecyclerView = findViewById(R.id.users_recycler_view)
         userRecyclerView.addItemDecoration(
             DividerItemDecoration(
@@ -31,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         userRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         // userRecyclerView.adapter = UserAdapter(userNameList)
-        userRecyclerView.adapter = CarAdapter(carList)
+        //userRecyclerView.adapter = CarAdapter(carList)
+        userRecyclerView.adapter = CityAdapter(cityList)
     }
 }
