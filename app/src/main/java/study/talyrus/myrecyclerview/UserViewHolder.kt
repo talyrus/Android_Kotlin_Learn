@@ -1,6 +1,7 @@
 package study.talyrus.myrecyclerview
 
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,8 @@ class UserViewHolder(itemView: View) :
         val userNameTextView: TextView = itemView.findViewById(R.id.users_name_text_view)
         userNameTextView.text = userName
 
-        itemView.setOnClickListener{
+        val toastButton:Button = itemView.findViewById(R.id.toast_button)
+        toastButton.setOnClickListener{
             Toast.makeText(itemView.context, userName, Toast.LENGTH_LONG).show()
         }
     }
