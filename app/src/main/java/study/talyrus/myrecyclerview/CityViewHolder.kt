@@ -13,11 +13,11 @@ class CityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) { // н
         val kolTextview: TextView = itemView.findViewById(R.id.kol_text_view)
         nameTextview.text = city.name
         populationTextview.text = city.population
-        val kolFormatted = "${city.kol} человек"
+        val kolFormatted = "${city.kol}"
         kolTextview.text = kolFormatted
 
         itemView.setOnClickListener{
-            Toast.makeText(itemView.context, city.name + ". " + city.population +": " + "${city.kol} человек", Toast.LENGTH_LONG).show()
+            Toast.makeText(itemView.context, city.name + ". " + city.population +": " + "${kolFormatted} человек", Toast.LENGTH_LONG).show()
         }
     }
 }
