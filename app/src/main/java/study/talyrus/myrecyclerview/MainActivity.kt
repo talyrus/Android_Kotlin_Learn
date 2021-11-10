@@ -31,18 +31,44 @@ class MainActivity : AppCompatActivity() {
             City("Калининград", "Численность", 987000)
         )
 
+        val bannerList: List<Banner> = listOf(
+            Banner(R.drawable.banner_image, "Hello"),
+            Banner(R.drawable.banner_image, "Bye"),
+            Banner(R.drawable.banner_image, "Hello1"),
+            Banner(R.drawable.banner_image, "Bye1"),
+            Banner(R.drawable.banner_image, "Hello2"),
+            Banner(R.drawable.banner_image, "Bye2"),
+            Banner(R.drawable.banner_image, "Hello3"),
+            Banner(R.drawable.banner_image, "Bye3")
+
+        )
+
         val userRecyclerView: RecyclerView = findViewById(R.id.users_recycler_view)
-        userRecyclerView.addItemDecoration(
+        //Для баннера декоратор не нужен
+        /*userRecyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
-        )
+
+        )*/
 
         userRecyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+           // LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            //для баннера поставим горизонтально
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         // userRecyclerView.adapter = UserAdapter(userNameList)
         //userRecyclerView.adapter = CarAdapter(carList)
-        userRecyclerView.adapter = CityAdapter(cityList)
+
+        // Домашнее задание СРС-8 - реализовать список городов
+        //userRecyclerView.adapter = CityAdapter(cityList)
+
+        // лекция от 07.11.2021 - использование карточек Material Design
+        //userRecyclerView.adapter = CarAdapter(carList)
+
+        userRecyclerView.adapter = BannerAdapter(bannerList)
     }
 }
+
+// adapter натягивает View на RecyclerView
+//ViewHolder натягивает данные на View
