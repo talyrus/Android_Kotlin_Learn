@@ -43,20 +43,31 @@ class MainActivity : AppCompatActivity() {
 
         )
 
+        val peopleList: List<People.Human> = listOf(
+            People.Man("Ivan", 22, "+79618517820"),
+            People.Woman("Anna", 21, "anna@mail.ru"),
+            People.Man("Egor", 52, "+79184411248"),
+            People.Woman("Nata", 41, "nata@mail.ru")
+
+        )
+
         val userRecyclerView: RecyclerView = findViewById(R.id.users_recycler_view)
+        userRecyclerView.layoutManager =
+        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         //Для баннера декоратор не нужен
-        /*userRecyclerView.addItemDecoration(
+        userRecyclerView.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
 
-        )*/
+        )
 
-        userRecyclerView.layoutManager =
-           // LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            //для баннера поставим горизонтально
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+
+                //для баннера поставим горизонтально
+              //LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
         // userRecyclerView.adapter = UserAdapter(userNameList)
         //userRecyclerView.adapter = CarAdapter(carList)
 
@@ -66,7 +77,9 @@ class MainActivity : AppCompatActivity() {
         // лекция от 07.11.2021 - использование карточек Material Design
         //userRecyclerView.adapter = CarAdapter(carList)
 
-        userRecyclerView.adapter = BannerAdapter(bannerList)
+        //userRecyclerView.adapter = BannerAdapter(bannerList)
+
+        userRecyclerView.adapter = PeopleAdapter(peopleList)
     }
 }
 
